@@ -1,8 +1,7 @@
 {
  // From the UT 汉化补丁 0.3.3 key-value extraction (provided by 真是滑稽了啊;
- // UT 汉化原作: 好人汉化组) + maintainer-proposed entries (marked in the
- // review list). Check values are stored WITHOUT the leading '* "Name" - '
- // header (the display layer re-adds it).
+ // UT 汉化原作: 好人汉化组). Check values are stored WITHOUT the leading
+ // '* Name - ' header (the display layer re-adds it).
  "act_compliment": "称赞",
  "act_flirt": "调情",
  "act_imitate": "模仿",

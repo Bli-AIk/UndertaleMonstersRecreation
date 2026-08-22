@@ -1,30 +1,31 @@
 {
  // From the UT 汉化补丁 0.3.3 key-value extraction (provided by 真是滑稽了啊;
- // UT 汉化原作: 好人汉化组). Check values are stored WITHOUT the leading
- // '* Name - ' header (the display layer re-adds it).
+ // UT 汉化原作: 好人汉化组) + maintainer-proposed entries (marked in the
+ // review list). Check values are stored WITHOUT the leading '* "Name" - '
+ // header (the display layer re-adds it).
  "act_compliment": "称赞",
  "act_flirt": "调情",
  "act_imitate": "模仿",
  "act_threaten": "威胁",
- "enemy_froggit_check": "攻击 4 防御 5 * 这个敌人的人生并不轻松 。",
- "enemy_froggit_low": "* 蛙吉特想要试着逃跑 。",
+ "enemy_froggit_check": "攻击 4 防御 5\n* 这个敌人的 \n人生并不轻松。",
+ "enemy_froggit_low": "* 蛙吉特想要试着 \n逃跑。",
  "enemy_froggit_name": "蛙吉特",
- "enemy_froggit_spare": "* 蛙吉特看起来并不想和你战斗 。",
- "enemy_froggit_turn1": "* 似乎蛙吉特并不知道自己为什么在这 。",
- "enemy_froggit_turn2": "* 蛙吉特跳来跳去 。",
- "enemy_froggit_turn3": "* 战场上充满了芥末籽的气味 。",
- "enemy_froggit_turn4": "* 你被蛙吉特粗野的力量给震慑到了 4。 * 开玩笑的 。",
- "enemy_moldsmal_check": "攻击 6 防御 0 * 典型印象 ： 身段妖娆气质好 ， 就是没大脑 ...",
- "enemy_moldsmal_low": "* 小模怪开始变质了 。",
+ "enemy_froggit_spare": "* 蛙吉特看起来 \n并不想和你战斗。",
+ "enemy_froggit_turn1": "* 似乎蛙吉特并不知道 \n自己为什么在这。",
+ "enemy_froggit_turn2": "* 蛙吉特跳来跳去。",
+ "enemy_froggit_turn3": "* 战场上充满了 \n芥末籽的气味。",
+ "enemy_froggit_turn4": "* 你被蛙吉特粗野的力量 \n给震慑到了 4。* 开玩笑的。",
+ "enemy_moldsmal_check": "攻击 6 防御 0\n* 典型印象：身段妖娆 \n气质好，就是没大脑 ...",
+ "enemy_moldsmal_low": "* 小模怪开始变质了。",
  "enemy_moldsmal_name": "小模怪",
- "enemy_moldsmal_turn1": "* 小模怪安静地吐着泡泡 。",
- "enemy_moldsmal_turn2": "* 小模怪充满忧思地等待着 。",
- "enemy_moldsmal_turn3": "* 小模怪正在反复品味 。",
- "enemy_moldsmal_turn4": "* 柠檬果冻的香气飘了过来 。",
- "lightencounter_froggit2_text": "* 一对蛙吉特向你跳来 。",
- "lightencounter_froggit_text": "* 蛙吉特蹦蹦跳跳地接近了 ！",
- "lightencounter_moldsmal2_text": "* 小模怪和小模怪挡住了去路 。",
- "lightencounter_moldsmal3_text": "* 你撞上了一排小模怪 。",
- "lightencounter_moldsmal_text": "* 小模怪拦住了去路 ！",
+ "enemy_moldsmal_turn1": "* 小模怪安静地吐着泡泡。",
+ "enemy_moldsmal_turn2": "* 小模怪充满忧思地等待着。",
+ "enemy_moldsmal_turn3": "* 小模怪正在反复品味。",
+ "enemy_moldsmal_turn4": "* 柠檬果冻的香气 \n飘了过来。",
+ "lightencounter_froggit2_text": "* 一对蛙吉特 \n向你跳来。",
+ "lightencounter_froggit_text": "* 蛙吉特蹦蹦跳跳地接近了！",
+ "lightencounter_moldsmal2_text": "* 小模怪和小模怪 \n挡住了去路。",
+ "lightencounter_moldsmal3_text": "* 你撞上了一排 \n小模怪。",
+ "lightencounter_moldsmal_text": "* 小模怪拦住了去路！",
  "mgr_act_check": "查看"
 }

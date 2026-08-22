@@ -20,8 +20,18 @@ local function getActKey(action)
     local enemy = action and action.target
     if action and action.action == "ACT" and type(action.name) == "string" and
         type(enemy) == "table" and type(enemy.id) == "string" then
-        local act_name = string.lower(action.name):gsub("[^%w]", "")
-        return enemy, "enemy_" .. enemy.id .. "_act_" .. act_name
+        -- action.name is the *visible* (localized) act name; keys must use
+        -- the English source name recorded by the refresher.
+        local act_name = nil
+        for _, act in ipairs(enemy.acts or {}) do
+            if act and (act.name == action.name or (act.i18n_display_names and
+                act.i18n_display_names[action.name])) then
+                act_name = act.i18n_source_name or act.name
+                break
+            end
+        end
+        act_name = act_name or action.name
+        return enemy, "enemy_" .. enemy.id .. "_act_" .. string.lower(act_name):gsub("[^%w]", "")
     end
 end
 

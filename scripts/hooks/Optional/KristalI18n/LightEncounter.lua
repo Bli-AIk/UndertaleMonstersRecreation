@@ -17,14 +17,13 @@ local function callLoc(key, fallback)
 end
 
 if HasI18N then
-    function LightEncounter:init(...)
-        local r = super.init(self, ...)
+    function LightEncounter:getInitialEncounterText()
+        local text = super.getInitialEncounterText(self)
         -- Encounter ids are file basenames (froggit, froggit2, moldsmal, ...).
         if type(self.id) == "string" then
-            self.i18n_orig_text = self.text
-            self.text = callLoc("lightencounter_" .. self.id .. "_text", self.text)
+            return callLoc("lightencounter_" .. self.id .. "_text", text)
         end
-        return r
+        return text
     end
 end
 

@@ -1,12 +1,12 @@
 {
  // From the UT 汉化补丁 0.3.3 key-value extraction (provided by 真是滑稽了啊;
- // UT 汉化原作: 好人汉化组). Inter-character spaces removed. Turn-text keys map
- // to the UT encounter object strings (obj_froggit_*/obj_fakefroggit_*).
+ // UT 汉化原作: 好人汉化组). Check values are stored WITHOUT the leading
+ // '* Name - ' header (the display layer re-adds it).
  "act_compliment": "称赞",
  "act_flirt": "调情",
  "act_imitate": "模仿",
  "act_threaten": "威胁",
- "enemy_froggit_check": "* 蛙吉特 - 攻击 4 防御 5 * 这个敌人的人生并不轻松 。",
+ "enemy_froggit_check": "攻击 4 防御 5 * 这个敌人的人生并不轻松 。",
  "enemy_froggit_low": "* 蛙吉特想要试着逃跑 。",
  "enemy_froggit_name": "蛙吉特",
  "enemy_froggit_spare": "* 蛙吉特看起来并不想和你战斗 。",
@@ -14,7 +14,7 @@
  "enemy_froggit_turn2": "* 蛙吉特跳来跳去 。",
  "enemy_froggit_turn3": "* 战场上充满了芥末籽的气味 。",
  "enemy_froggit_turn4": "* 你被蛙吉特粗野的力量给震慑到了 4。 * 开玩笑的 。",
- "enemy_moldsmal_check": "* 小模怪 - 攻击 6 防御 0 * 典型印象 ： 身段妖娆气质好 ， 就是没大脑 ...",
+ "enemy_moldsmal_check": "攻击 6 防御 0 * 典型印象 ： 身段妖娆气质好 ， 就是没大脑 ...",
  "enemy_moldsmal_low": "* 小模怪开始变质了 。",
  "enemy_moldsmal_name": "小模怪",
  "enemy_moldsmal_turn1": "* 小模怪安静地吐着泡泡 。",

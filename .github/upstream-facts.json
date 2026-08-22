@@ -1,0 +1,14 @@
+{
+    "upstream": {
+        "repo": "FireRainV/Noelle-Libraries-Pack",
+        "branch": "main",
+        "path": "libraries/UndertaleMonstersRecreation",
+        "ref": "f182f69",
+        "last_touch_sha": "f182f69",
+        "tree_sha": "0482e7d371545ecd48ebd42bfb90b098e387dbc9",
+        "lib_version": "v1.1.1",
+        "engine_ver": "v0.10.0",
+        "id": "undertale_monsters_recreation",
+        "dependencies": ["magical-glass"]
+    }
+}

@@ -30,4 +30,4 @@
 
 - Local Kristal 0.11-dev checkout pinned at `f62afea` (see README support
   table). Smoke-test with a mod that loads MagicalGlassRedux +
-  kotortaleMonstersRecreation.
+  UndertaleMonstersRecreation.

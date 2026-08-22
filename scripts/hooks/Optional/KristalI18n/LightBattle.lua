@@ -9,9 +9,9 @@ end
 
 local LightBattle, super = HookSystem.hookScript(LightBattle)
 
-local function callLoc(key, fallback)
+local function callLoc(key, fallback, var)
     if HasI18N and Game and Game.hasStr and Game:hasStr(key) then
-        return Game:loc(key)
+        return Game:loc(key, var)
     end
     return fallback
 end
@@ -37,7 +37,9 @@ if HasI18N then
         enemy.onAct = function(target, battler, name)
             local text = original_on_act(target, battler, name)
             if type(text) == "string" then
-                text = callLoc(key, text)
+                local act_var = battler and battler.chara and battler.chara:getName()
+                    and { who = battler.chara:getName() } or nil
+                text = callLoc(key, text, act_var)
             end
             if type(target.dialogue_override) == "string" then
                 target.i18n_dialogue_key = key .. "_dialogue"

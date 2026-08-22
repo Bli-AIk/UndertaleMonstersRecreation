@@ -1,10 +1,10 @@
 -- Optional kristal-i18n adapter for UMR content: superclass base texts.
 --
--- UMR enemies register their content strings in `LightEnemyBattler:init`
--- (turn texts `self.text`, `low_health_text`, `spareable_text`, extra act
--- names via `registerAct`, `self.name`, `self.check`). This adapter swaps
--- those fields to localized values on battle start / language switch, exactly
--- like the magical-glass adapter does for name/check (both run independently).
+-- UMR enemies register their content strings after `LightEnemyBattler:init`
+-- returns (turn texts `self.text`, `low_health_text`, `spareable_text`, extra
+-- act names via `registerAct`, `self.name`, `self.check`). This adapter swaps
+-- those fields to localized values after battle construction / on language
+-- switch, exactly like the magical-glass adapter does for name/check.
 -- Without kristalI18n this hook only registers the shared refresh helper.
 local HasI18N = Mod and Mod.libs and Mod.libs["kristalI18n"] ~= nil
 -- Optional runtime switch: the main mod can disable the whole library via
@@ -41,7 +41,19 @@ local function refreshEnemy(enemy)
         return
     end
     local id = enemy.id
-    refreshField(enemy, "name", "enemy_" .. id .. "_name")
+    -- Names resolve through the name dictionary ([name:<id>]) so they follow
+    -- the *name language* setting, keeping the English name when that is
+    -- selected (e.g. KRIS/SUSIE English but zh_hans UI). Fall back to the
+    -- enemy_<id>_name key only if the dictionary has no entry.
+    local name_value = Game.locText and Game:locText("[name:" .. id .. "]")
+    if type(name_value) == "string" and not name_value:find("is missing", 1, true) then
+        if enemy.name and enemy.i18n_orig_name == nil then
+            enemy.i18n_orig_name = enemy.name
+        end
+        enemy.name = name_value
+    else
+        refreshField(enemy, "name", "enemy_" .. id .. "_name")
+    end
     refreshField(enemy, "check", "enemy_" .. id .. "_check")
     refreshField(enemy, "low_health_text", "enemy_" .. id .. "_low_health")
     refreshField(enemy, "spareable_text", "enemy_" .. id .. "_spareable")
@@ -56,8 +68,16 @@ local function refreshEnemy(enemy)
         enemy.text = out
     end
     for _, act in ipairs(enemy.acts or {}) do
-        if act and type(act.name) == "string" then
-            act.name = callLoc("act_" .. string.lower(act.name):gsub("[^%w]", ""), act.name)
+        if act and type(act.name) == "string" and act.name ~= "Check" and
+            act.i18n_source_name ~= "Check" then
+            if act.i18n_source_name == nil then
+                act.i18n_source_name = act.name
+            end
+            act.i18n_display_names = act.i18n_display_names or {}
+            act.i18n_display_names[act.name] = true
+            local source_name = act.i18n_source_name
+            act.name = callLoc("act_" .. string.lower(source_name):gsub("[^%w]", ""), source_name)
+            act.i18n_display_names[act.name] = true
         end
     end
 end
@@ -67,33 +87,17 @@ if HasI18N and Mod and Mod.libs and Mod.libs["undertale_monsters_recreation"] th
 end
 
 if HasI18N then
-    function LightEnemyBattler:init(...)
-        local r = super.init(self, ...)
-        refreshEnemy(self)
-        return r
-    end
-
-    -- Custom act results ("Compliment", "Threaten", "Imitate", "Flirt"...) and
-    -- the next-turn dialogue_override come from MGR/UMR hardcoded strings.
-    -- Keys: enemy_<id>_act_<actname> and ..._dialogue (absent keys keep the
-    -- English result; the Standard "sated" text has no UT source).
-    function LightEnemyBattler:onAct(battler, name)
-        local r = super.onAct(self, battler, name)
-        local act_part = type(name) == "string" and string.lower(name):gsub("[^%w]", "") or nil
-        if act_part then
-            if type(r) == "string" then
-                r = callLoc("enemy_" .. self.id .. "_act_" .. act_part, r)
-            end
-            if type(self.dialogue_override) == "string" then
-                if self.i18n_orig_dialogue_override == nil then
-                    self.i18n_orig_dialogue_override = self.dialogue_override
-                end
-                self.dialogue_override = callLoc(
-                    "enemy_" .. self.id .. "_act_" .. act_part .. "_dialogue",
-                    self.i18n_orig_dialogue_override)
-            end
+    -- Dialogue overrides are installed by a data-layer onAct implementation.
+    -- Resolve them at read time so a language switch before the enemy talks is
+    -- still reflected correctly.
+    function LightEnemyBattler:getEnemyDialogue()
+        if type(self.i18n_dialogue_key) == "string" and type(self.i18n_dialogue_source) == "string" then
+            self.dialogue_override = callLoc(self.i18n_dialogue_key, self.i18n_dialogue_source)
         end
-        return r
+        local dialogue = super.getEnemyDialogue(self)
+        self.i18n_dialogue_key = nil
+        self.i18n_dialogue_source = nil
+        return dialogue
     end
 end
 

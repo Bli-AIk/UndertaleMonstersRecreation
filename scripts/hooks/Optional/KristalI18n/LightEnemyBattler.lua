@@ -16,9 +16,9 @@ end
 
 local LightEnemyBattler, super = HookSystem.hookScript(LightEnemyBattler)
 
-local function callLoc(key, fallback)
+local function callLoc(key, fallback, var)
     if HasI18N and Game and Game.hasStr and Game:hasStr(key) then
-        return Game:loc(key)
+        return Game:loc(key, var)
     end
     return fallback
 end
@@ -55,15 +55,15 @@ local function refreshEnemy(enemy)
         refreshField(enemy, "name", "enemy_" .. id .. "_name")
     end
     refreshField(enemy, "check", "enemy_" .. id .. "_check")
-    refreshField(enemy, "low_health_text", "enemy_" .. id .. "_low_health")
-    refreshField(enemy, "spareable_text", "enemy_" .. id .. "_spareable")
+    refreshField(enemy, "low_health_text", "enemy_" .. id .. "_low")
+    refreshField(enemy, "spareable_text", "enemy_" .. id .. "_spare")
     if type(enemy.text) == "table" then
         if enemy.i18n_orig_text == nil then
             enemy.i18n_orig_text = TableUtils.copy(enemy.text)
         end
         local out = {}
         for i, text in ipairs(enemy.i18n_orig_text) do
-            out[i] = callLoc("enemy_" .. id .. "_text_" .. i, text)
+            out[i] = callLoc("enemy_" .. id .. "_turn" .. i, text)
         end
         enemy.text = out
     end
@@ -87,6 +87,24 @@ if HasI18N and Mod and Mod.libs and Mod.libs["undertale_monsters_recreation"] th
 end
 
 if HasI18N then
+    -- Custom act result texts (Compliment / Threaten / Imitate / Flirt /
+    -- Standard...) come from the data layer's onAct return value. Keys:
+    -- enemy_<id>_act_<actname>; the Standard template embeds the acting
+    -- member's name, passed as [var:who].
+    function LightEnemyBattler:onAct(battler, name)
+        local r = super.onAct(self, battler, name)
+        local act_part = type(name) == "string" and string.lower(name):gsub("[^%w]", "") or nil
+        if act_part and type(r) == "string" then
+            local key = "enemy_" .. self.id .. "_act_" .. act_part
+            if battler and battler.chara and battler.chara:getName() then
+                r = callLoc(key, r, { who = battler.chara:getName() })
+            else
+                r = callLoc(key, r)
+            end
+        end
+        return r
+    end
+
     -- Dialogue overrides are installed by a data-layer onAct implementation.
     -- Resolve them at read time so a language switch before the enemy talks is
     -- still reflected correctly.

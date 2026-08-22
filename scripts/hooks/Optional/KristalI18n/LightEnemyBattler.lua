@@ -72,6 +72,29 @@ if HasI18N then
         refreshEnemy(self)
         return r
     end
+
+    -- Custom act results ("Compliment", "Threaten", "Imitate", "Flirt"...) and
+    -- the next-turn dialogue_override come from MGR/UMR hardcoded strings.
+    -- Keys: enemy_<id>_act_<actname> and ..._dialogue (absent keys keep the
+    -- English result; the Standard "sated" text has no UT source).
+    function LightEnemyBattler:onAct(battler, name)
+        local r = super.onAct(self, battler, name)
+        local act_part = type(name) == "string" and string.lower(name):gsub("[^%w]", "") or nil
+        if act_part then
+            if type(r) == "string" then
+                r = callLoc("enemy_" .. self.id .. "_act_" .. act_part, r)
+            end
+            if type(self.dialogue_override) == "string" then
+                if self.i18n_orig_dialogue_override == nil then
+                    self.i18n_orig_dialogue_override = self.dialogue_override
+                end
+                self.dialogue_override = callLoc(
+                    "enemy_" .. self.id .. "_act_" .. act_part .. "_dialogue",
+                    self.i18n_orig_dialogue_override)
+            end
+        end
+        return r
+    end
 end
 
 return LightEnemyBattler

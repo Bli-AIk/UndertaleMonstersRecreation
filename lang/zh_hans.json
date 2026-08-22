@@ -1,7 +1,8 @@
 {
- // From the UT 汉化补丁 0.3.3 key-value extraction (provided by 真是滑稽了啊;
- // UT 汉化原作: 好人汉化组). Check values are stored WITHOUT the leading
- // '* Name - ' header (the display layer re-adds it).
+ // 数据来源：UT 汉化补丁 0.3.3 键值对提取版（由「真是滑稽了啊」提供；UT 汉化原作：好人汉化组）。
+ //
+ // 格式约定：check 值不含前导 '* "名称" - ' 头部（显示层会重新拼接）；源文本字间空格已去除，
+ // 中文间距由 kristal-i18n 处理；条目缺失时自动回退英文。
  "act_compliment": "称赞",
  "act_flirt": "调情",
  "act_imitate": "模仿",

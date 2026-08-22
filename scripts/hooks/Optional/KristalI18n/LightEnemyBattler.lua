@@ -1,8 +1,9 @@
 -- Optional kristal-i18n adapter for UMR content: superclass base texts.
 --
 -- UMR enemies register their content strings after `LightEnemyBattler:init`
--- returns (turn texts `self.text`, `low_health_text`, `spareable_text`, extra
--- act names via `registerAct`, `self.name`, `self.check`). This adapter swaps
+-- returns (turn texts `self.text`, random `self.dialogue`, `low_health_text`,
+-- `spareable_text`, extra act names via `registerAct`, `self.name`,
+-- `self.check`). This adapter swaps
 -- those fields to localized values after battle construction / on language
 -- switch, exactly like the magical-glass adapter does for name/check.
 -- Without kristalI18n this hook only registers the shared refresh helper.
@@ -66,6 +67,16 @@ local function refreshEnemy(enemy)
             out[i] = callLoc("enemy_" .. id .. "_turn" .. i, text)
         end
         enemy.text = out
+    end
+    if type(enemy.dialogue) == "table" then
+        if enemy.i18n_orig_dialogue == nil then
+            enemy.i18n_orig_dialogue = TableUtils.copy(enemy.dialogue)
+        end
+        local out = {}
+        for i, dialogue in ipairs(enemy.i18n_orig_dialogue) do
+            out[i] = callLoc("enemy_" .. id .. "_dialogue" .. i, dialogue)
+        end
+        enemy.dialogue = out
     end
     for _, act in ipairs(enemy.acts or {}) do
         if act and type(act.name) == "string" and act.name ~= "Check" and

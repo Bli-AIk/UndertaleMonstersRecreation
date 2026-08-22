@@ -7,6 +7,13 @@
 -- like the magical-glass adapter does for name/check (both run independently).
 -- Without kristalI18n this hook only registers the shared refresh helper.
 local HasI18N = Mod and Mod.libs and Mod.libs["kristalI18n"] ~= nil
+-- Optional runtime switch: the main mod can disable the whole library via
+-- mod.json config ({"undertale_monsters_recreation": {"enabled": false}}); see README.
+if Mod and Mod.libs and Mod.libs["undertale_monsters_recreation"] and Kristal.getLibConfig and
+    Kristal.getLibConfig("undertale_monsters_recreation", "enabled") == false then
+    return LightEnemyBattler
+end
+
 local LightEnemyBattler, super = HookSystem.hookScript(LightEnemyBattler)
 
 local function callLoc(key, fallback)

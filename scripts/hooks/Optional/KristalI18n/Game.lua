@@ -2,6 +2,13 @@
 -- on language switch (the UMR adapter registers `i18n_refreshEnemy` on the
 -- undertale_monsters_recreation library table).
 local HasI18N = Mod and Mod.libs and Mod.libs["kristalI18n"] ~= nil
+-- Optional runtime switch: the main mod can disable the whole library via
+-- mod.json config ({"undertale_monsters_recreation": {"enabled": false}}); see README.
+if Mod and Mod.libs and Mod.libs["undertale_monsters_recreation"] and Kristal.getLibConfig and
+    Kristal.getLibConfig("undertale_monsters_recreation", "enabled") == false then
+    return Game
+end
+
 local Game, super = HookSystem.hookScript(Game)
 
 if HasI18N then

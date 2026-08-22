@@ -9,6 +9,12 @@
 
     "dependencies": ["magical-glass"],
 
+    // Runtime enable switch; main mods can override it from their mod.json
+    // ("config": {"undertale_monsters_recreation": {"enabled": false}}).
+    "config": {
+        "enabled": true
+    },
+
     "version": "v1.1.1",
-    "engineVer": "v0.10.0",
+    "engineVer": "v0.11.0-dev",
 }

@@ -1,32 +1,36 @@
 # UndertaleMonstersRecreation
 
-UNDERTALE monsters (Froggit, Moldsmal) as light battle content for
-[MagicalGlassRedux](https://github.com/Bli-AIk/MagicalGlassRedux) and
-[Kristal](https://github.com/KristalTeam/Kristal).
+[![license](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue)](LICENSE-APACHE) <img src="https://img.shields.io/github/repo-size/Bli-AIk/UndertaleMonstersRecreation.svg"/> <img src="https://img.shields.io/github/last-commit/Bli-AIk/UndertaleMonstersRecreation.svg"/> <img src="https://img.shields.io/github/v/release/Bli-AIk/UndertaleMonstersRecreation.svg"/> <br>
+<img src="https://img.shields.io/badge/UNDERTALE-000000?style=for-the-badge&logo=undertale&logoColor=ff0000" /> <img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" /> <img src="https://img.shields.io/badge/Kristal-FF6B35?style=for-the-badge&logo=love2d&logoColor=white" />
 
-This repository is a **maintenance fork**: upstream
-([FireRainV/Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack))
-targets Kristal 0.10 and is not actively maintained, so this repo follows the
-MagicalGlassRedux fork's Kristal 0.11-dev port and adds optional
-[kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) support. See
-[`UPSTREAM.md`](UPSTREAM.md) and [`CHANGELOG.md`](CHANGELOG.md).
+**UndertaleMonstersRecreation** — UNDERTALE monsters (Froggit, Moldsmal…) as light battle content for [MagicalGlassRedux](https://github.com/Bli-AIk/MagicalGlassRedux) and [Kristal](https://github.com/KristalTeam/Kristal).
 
-## Kristal version support
+This repository is a **maintenance fork**: upstream ([FireRainV/Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack)) targets Kristal 0.10 and is no longer actively maintained, so this fork follows the MagicalGlassRedux fork's Kristal 0.11-dev port and adds optional [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) support. See [`UPSTREAM.md`](UPSTREAM.md) and [`CHANGELOG.md`](CHANGELOG.md).
 
-| Kristal v0.11.0-dev (`f62afea`, 2026-08-22) | UndertaleMonstersRecreation v0.0.0, engineVer `v0.11.0-dev` |
-|---|---|
-| Kristal v0.10.0 | v1.1.1 (upstream; `f182f69`) |
+| English | 简体中文                        |
+| ------- | ------------------------------- |
+| English | [简体中文](./README_zh_hans.md) |
+
+## Kristal Version Support
+
+| Kristal version | UndertaleMonstersRecreation |
+| --------------- | --------------------------- |
+| [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/f62afea63ccab02f468c24ac0d096bd8a2c9aa81) (`f62afea`, 2026-08-17) | v0.0.0 (fork), engineVer `v0.11.0-dev` |
+| v0.10.0 | v1.1.1 (upstream; `f182f69`) |
+
+`v0.0.0` is the fork's current version line in `lib.json`; there is no packaged fork release yet (see [`CHANGELOG.md`](CHANGELOG.md)).
 
 ### Upstream alignment
 
-| fork 版本 | 对齐的上游 | 上游 ref | 说明 |
-|---|---|---|---|
-| 0.0.0 | UndertaleMonstersRecreation v1.1.1 | Noelle-Libraries-Pack `f182f69` (tree `672a97d6`) | 0.11-dev 移植 + kristal-i18n 适配 |
+| Fork version | Aligned upstream | Upstream ref | Notes |
+| ------------ | ---------------- | ------------ | ----- |
+| v0.0.0 | UndertaleMonstersRecreation v1.1.1 | Noelle-Libraries-Pack `f182f69` (folder tree `0482e7d`) | Kristal 0.11-dev port + kristal-i18n adaption |
+
+The pins live in `.github/upstream-facts.json`; see [`UPSTREAM.md`](UPSTREAM.md) for how they are computed.
 
 ## Install
 
-Requires **MagicalGlassRedux** (library id `magical-glass`) — this library
-declares it as a hard dependency.
+Requires **MagicalGlassRedux** (library id `magical-glass`) — this library declares it as a hard dependency.
 
 ```sh
 git submodule add https://github.com/Bli-AIk/MagicalGlassRedux.git \
@@ -35,47 +39,51 @@ git submodule add https://github.com/Bli-AIk/UndertaleMonstersRecreation.git \
   libraries/UndertaleMonstersRecreation
 ```
 
-The library is content-only (no `lib.lua`): its enemies register through the
-`MG_EVENT` registry once MagicalGlassRedux is loaded.
+The library is content-only (no `lib.lua`): its enemies register through the `MG_EVENT` registry once MagicalGlassRedux is loaded. Keep the upstream folder name (`UndertaleMonstersRecreation`) so the engine discovers it via `lib.json` (library id `undertale_monsters_recreation`).
+
+## Runtime Enable Switch
+
+Like MagicalGlassRedux, a main mod can disable this library cleanly from its `mod.json` (overriding `lib.json`'s `enabled` default of `true` without touching the library):
+
+```json
+"config": {
+    "undertale_monsters_recreation": { "enabled": false }
+}
+```
+
+When disabled, its content is not registered; the library still appears in `Mod.libs`, so dependency guards stay safe.
 
 ## Content
 
-- `froggit` — light enemy, 3 waves (flies / leapfrog / splinter), 6 bullets,
-  encounters `froggit`, `froggit2`
-- `moldsmal` — light enemy, 2 waves (pollendrop / splinterbig), encounters
-  `moldsmal`, `moldsmal2`, `moldsmal3`
+- `froggit` — light enemy, 3 waves (flies / leapfrog / splinter), 6 bullets, encounters `froggit`, `froggit2`
+- `moldsmal` — light enemy, 2 waves (pollendrop / splinterbig), encounters `moldsmal`, `moldsmal2`, `moldsmal3`
 
-## kristal-i18n support (optional)
+## kristal-i18n Support (optional)
 
-When kristal-i18n (`kristalI18n`) is loaded, enemy names/check texts and wave
-strings are localized through `Game:loc` with `Game:hasStr` guards (English
-fallback otherwise). Language data lives in `lang/` and is merged automatically.
+When kristal-i18n (`kristalI18n`) is loaded, enemy names/check texts and wave strings are localized through `Game:loc` with `Game:hasStr` guards (English fallback otherwise). Language data lives in `lang/` and is merged automatically.
 
-Translation sources (see `lang/zh_hans.json` provenance comments):
+Translation provenance is recorded in the comments of `lang/zh_hans.json`; see [Upstream & References](#upstream--references) for the sources.
 
-- UT string key-value extraction provided by 「真是滑稽了啊」 (UT 汉化原作: 好人汉化组)
-- Deltarune 汉化: [Goodman 3 / gm3dr](https://github.com/gm3dr/DeltaruneChinese)
-  — overrides where the light-world UI overlaps
-- Fork-uncovered strings require maintainer review before translation
+## Upstream & References
+
+| Source | Author |
+| ------ | ------ |
+| [Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack) (upstream) | FireRainV |
+| UT 汉化补丁 0.3.3 key-value extraction (original UT translation: 好人汉化组) | 真是滑稽了啊 |
+| [DeltaruneChinese](https://github.com/gm3dr/DeltaruneChinese) — overrides where the light-world UI overlaps | [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) |
+| [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | Bli-AIk |
+
+## Contributing
+
+Issues and Pull Requests are welcome. This fork is the local port hub: prefer sending fixes that are not fork-specific back upstream ([FireRainV/Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack)) as PRs, to avoid fork-local drift.
+
+For the repo layout (upstream vs fork code), land rules and translation review requirements, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-**License split** (important — see `LICENSE-UPSTREAM.md`, `LICENSE-MIT`,
-`LICENSE-APACHE`):
+**License split** (important — see [LICENSE-UPSTREAM.md](LICENSE-UPSTREAM.md), [LICENSE-MIT](LICENSE-MIT), [LICENSE-APACHE](LICENSE-APACHE)):
 
-- *Upstream code* — everything originally shipped in the pack library, as
-  imported at commit `249c171`, itself pinned to upstream `f182f69` —
-  **retains all rights** © the original authors listed in `lib.json`
-  (Sam Deluxe, BrendaK7200, FireRainV); upstream published it **without a
-  license grant**. No open-source license is claimed for it here.
-- *Fork code* — port fixes, the kristal-i18n adapter, CI, and docs — is
-  **dual-licensed MIT OR Apache-2.0, at your option**.
-- The split follows `git log`: every commit up to and including
-  `Import UndertaleMonstersRecreation v1.1.1 ...` is upstream; everything after
-  is fork code.
-- Translations derived from upstream text fall under the upstream rights;
-  fork-original translations are covered by the fork license.
-
-Maintenance note: upstream author FireRainV has been contacted regarding this
-fork (see `UPSTREAM.md`); contributions back upstream via PR are preferred to
-fork-local drift.
+- *Upstream code* — everything originally shipped in the pack library, as imported at commit `249c171`, itself pinned to upstream `f182f69` — **retains all rights** © the original authors listed in `lib.json` (Sam Deluxe, BrendaK7200, FireRainV); upstream published it **without a license grant**. No open-source license is claimed for it here.
+- *Fork code* — port fixes, the kristal-i18n adapter, CI, and docs — is **dual-licensed MIT OR Apache-2.0, at your option**.
+- The split follows `git log`: every commit up to and including `Import UndertaleMonstersRecreation v1.1.1 ...` is upstream; everything after is fork code.
+- Translations derived from upstream text fall under the upstream rights; fork-original translations are covered by the fork license.

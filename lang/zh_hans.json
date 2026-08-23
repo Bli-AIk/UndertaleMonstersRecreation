@@ -25,6 +25,7 @@
  "enemy_froggit_dialogue4": "[wave:2]喵。",
  "enemy_moldsmal_act_flirt": "* 你扭动着你的臀部。\n* [name:moldsmal]用扭动回应你。\n* 真是有意义的交流！",
 "enemy_moldsmal_act_imitate": "* 你躺在[name:moldsmal]旁一动不动。\n* 你感觉自己能更好地\n理解这个世界了。",
+"enemy_moldsmal_act_standard": "* [var:who]和[name:moldsmal]一起扭动。\n* [name:moldsmal]也扭动了起来。",
 "enemy_moldsmal_check": "攻击 6 防御 0\n* 典型印象：身段妖娆\n气质好，就是没大脑 ...",
  "enemy_moldsmal_low": "* [name:moldsmal]开始变质了。",
  "enemy_moldsmal_name": "小模怪",

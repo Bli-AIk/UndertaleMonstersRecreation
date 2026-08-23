@@ -8,6 +8,7 @@
  "enemy_froggit_act_threaten": "* Froggit didn't understand\nwhat you said,[wait:5] but was\nscared anyway.",
  "enemy_froggit_act_threaten_dialogue": "[wave:2]Shiver,\nshiver.",
  "enemy_froggit_act_standard": "* Froggit didn't understand\nwhat [var:who] did,[wait:5] but was\nsated anyway.",
+ "enemy_froggit_act_standard_dialogue": "[wave:2](Blushes\ndeeply.)\nRibbit .. ",
  "enemy_froggit_check": "ATK 4 DEF 5\n* Life is difficult for\nthis enemy.",
  "enemy_froggit_low": "* Froggit is trying to\nrun away.",
  "enemy_froggit_name": "Froggit",

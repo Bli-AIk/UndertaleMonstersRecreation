@@ -11,6 +11,7 @@
 "enemy_froggit_act_threaten": "* [name:froggit]并不明白你在\n说什么，不过它好像\n被吓到了。",
 "enemy_froggit_act_threaten_dialogue": "[wave:2]颤抖，\n颤抖。",
 "enemy_froggit_act_standard": "* [name:froggit]并不明白\n[var:who]做了什么，不过它好像\n心满意足了。",
+"enemy_froggit_act_standard_dialogue": "[wave:2](脸涨得\n通红。)\n呱呱 ..",
 "enemy_froggit_check": "攻击 4 防御 5\n* 这个敌人的\n人生并不轻松。",
  "enemy_froggit_low": "* [name:froggit]想要试着\n逃跑。",
  "enemy_froggit_name": "蛙吉特",

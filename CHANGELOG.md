@@ -15,6 +15,7 @@ All notable changes to this fork are documented here, following
 
 - Implement Moldsmal's default `Standard` X-Action, preventing an unhandled
   action from leaving a light battle stuck in `ACTIONS`.
+- Add a complete English localization table for the current UMR content.
 
 ### Port / i18n (in progress)
 

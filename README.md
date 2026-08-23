@@ -69,7 +69,7 @@ Translation provenance is recorded in the comments of `lang/zh_hans.json`; see [
 | Source | Author |
 | ------ | ------ |
 | [Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack) (upstream) | FireRainV |
-| UT 汉化补丁 0.3.3 key-value extraction (original UT translation: 好人汉化组) | 真是滑稽了啊 |
+| UT 汉化补丁 0.3.3 key-value extraction | 真是滑稽了啊 (extraction) · [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) (original UT translation) |
 | [DeltaruneChinese](https://github.com/gm3dr/DeltaruneChinese) — overrides where the light-world UI overlaps | [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) |
 | [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | Bli-AIk |
 

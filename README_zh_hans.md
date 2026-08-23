@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue)](LICENSE-APACHE) <img src="https://img.shields.io/github/repo-size/Bli-AIk/UndertaleMonstersRecreation.svg"/> <img src="https://img.shields.io/github/last-commit/Bli-AIk/UndertaleMonstersRecreation.svg"/> <img src="https://img.shields.io/github/v/release/Bli-AIk/UndertaleMonstersRecreation.svg"/> <br>
 <img src="https://img.shields.io/badge/UNDERTALE-000000?style=for-the-badge&logo=undertale&logoColor=ff0000" /> <img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" /> <img src="https://img.shields.io/badge/Kristal-FF6B35?style=for-the-badge&logo=love2d&logoColor=white" />
 
-**UndertaleMonstersRecreation** — 面向 [MagicalGlassRedux](https://github.com/Bli-AIk/MagicalGlassRedux) 与 [Kristal](https://github.com/KristalTeam/Kristal) 的 UNDERTALE 怪物光战斗内容（蛙吉特、小模怪…）。
+**UndertaleMonstersRecreation** — 面向 [MagicalGlassRedux](https://github.com/Bli-AIk/MagicalGlassRedux) 与 [Kristal](https://github.com/KristalTeam/Kristal) 的 UNDERTALE 怪物光世界战斗内容（蛙吉特、小模怪…）。
 
 本仓库是**维护 fork**：上游（[FireRainV/Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack)）面向 Kristal 0.10 且不再积极维护，因此本仓库跟随 MagicalGlassRedux fork 的 Kristal 0.11-dev 移植，并增加可选的 [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) 支持。详见 [`UPSTREAM.md`](UPSTREAM.md) 与 [`CHANGELOG.md`](CHANGELOG.md)。
 
@@ -55,8 +55,8 @@ git submodule add https://github.com/Bli-AIk/UndertaleMonstersRecreation.git \
 
 ## 内容
 
-- `froggit`（蛙吉特）—— 光敌人，3 波次（flies / leapfrog / splinter）、6 弹幕，遭遇战 `froggit`、`froggit2`
-- `moldsmal`（小模怪）—— 光敌人，2 波次（pollendrop / splinterbig），遭遇战 `moldsmal`、`moldsmal2`、`moldsmal3`
+- `froggit`（蛙吉特）—— 光世界敌人，3 波次（flies / leapfrog / splinter）、6 弹幕，遭遇战 `froggit`、`froggit2`
+- `moldsmal`（小模怪）—— 光世界敌人，2 波次（pollendrop / splinterbig），遭遇战 `moldsmal`、`moldsmal2`、`moldsmal3`
 
 ## kristal-i18n 支持（可选）
 
@@ -69,7 +69,7 @@ git submodule add https://github.com/Bli-AIk/UndertaleMonstersRecreation.git \
 | 来源 | 作者 |
 | ---- | ---- |
 | [Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack)（上游） | FireRainV |
-| UT 汉化补丁 0.3.3 键值对提取（UT 汉化原作：好人汉化组） | 真是滑稽了啊 |
+| UT 汉化补丁 0.3.3 键值对提取 | 真是滑稽了啊（提取）· [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/)（UT 汉化原作） |
 | [DeltaruneChinese](https://github.com/gm3dr/DeltaruneChinese) —— 与光世界 UI 重叠处以它为准 | [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) |
 | [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | Bli-AIk |
 

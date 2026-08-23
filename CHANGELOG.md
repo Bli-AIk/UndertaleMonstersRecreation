@@ -11,6 +11,11 @@ All notable changes to this fork are documented here, following
 
 ## [Unreleased] — fork development
 
+### Fixes
+
+- Implement Moldsmal's default `Standard` X-Action, preventing an unhandled
+  action from leaving a light battle stuck in `ACTIONS`.
+
 ### Port / i18n (in progress)
 
 - Import UndertaleMonstersRecreation v1.1.1 from upstream tree (see `UPSTREAM.md`).

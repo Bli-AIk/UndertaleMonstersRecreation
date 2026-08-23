@@ -59,6 +59,8 @@ function Moldsmal:onAct(battler, name)
     elseif name == "Flirt" then
         self.money = 1
         return "* You wiggle your hips.[wait:10]\n* Moldsmal wiggles back.[wait:10]\n* What a meaningful conversation!"
+    elseif name == "Standard" then
+        return "* " .. battler.chara:getName() .. " wiggles alongside Moldsmal.\n* Moldsmal wiggles back."
     end
 
     return super.onAct(self, battler, name)

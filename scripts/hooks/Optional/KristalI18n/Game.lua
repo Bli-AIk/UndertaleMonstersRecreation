@@ -9,6 +9,12 @@ if Mod and Mod.libs and Mod.libs["undertale_monsters_recreation"] and Kristal.ge
     Kristal.getLibConfig("undertale_monsters_recreation", "enabled") == false then
     return BaseGame
 end
+-- UMR content is loaded through magical-glass: when MGR is missing or
+-- disabled, UMR is inert too, so its adapters must stay inert as well.
+local mgr = Mod and Mod.libs and Mod.libs["magical-glass"]
+if mgr == nil or (Kristal.getLibConfig and Kristal.getLibConfig("magical-glass", "enabled") == false) then
+    return BaseGame
+end
 
 local Game, super = HookSystem.hookScript(BaseGame)
 

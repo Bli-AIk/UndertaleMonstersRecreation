@@ -23,6 +23,9 @@ All notable changes to this fork are documented here, following
 - Follow the MagicalGlassRedux fork's Kristal 0.11-dev port (content-only
   library; enemy registration through `MG_EVENT`).
 - Optional kristal-i18n adapter + `lang/` data.
+- Scope live localization to UMR enemy instances and keep its refresher
+  private to the library.
+- Remove the unsupported runtime `enabled` switch.
 - CI: Kristal update check + upstream drift check.
 
 <!-- release-please will manage fork release notes from here -->

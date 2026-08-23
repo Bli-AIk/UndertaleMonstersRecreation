@@ -1,4 +1,5 @@
 local Moldsmal, super = Class(LightEnemyBattler)
+Moldsmal.i18n_umr = true
 
 function Moldsmal:init()
     super.init(self)

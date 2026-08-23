@@ -42,6 +42,5 @@
  "lightencounter_froggit_text": "* [name:froggit]蹦蹦跳跳地接近了！",
  "lightencounter_moldsmal2_text": "* [name:moldsmal]和[name:moldsmal]\n挡住了去路。",
  "lightencounter_moldsmal3_text": "* 你撞上了一排\n[name:moldsmal]。",
- "lightencounter_moldsmal_text": "* [name:moldsmal]拦住了去路！",
- "mgr_act_check": "查看"
+ "lightencounter_moldsmal_text": "* [name:moldsmal]拦住了去路！"
 }

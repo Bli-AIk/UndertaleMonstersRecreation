@@ -1,17 +1,5 @@
 -- Optional kristal-i18n adapter for UMR content: encounter intro texts.
 local HasI18N = Mod and Mod.libs and Mod.libs["kristalI18n"] ~= nil
--- Optional runtime switch: the main mod can disable the whole library via
--- mod.json config ({"undertale_monsters_recreation": {"enabled": false}}); see README.
-if Mod and Mod.libs and Mod.libs["undertale_monsters_recreation"] and Kristal.getLibConfig and
-    Kristal.getLibConfig("undertale_monsters_recreation", "enabled") == false then
-    return LightEncounter
-end
--- UMR content is loaded through magical-glass: when MGR is missing or
--- disabled, UMR is inert too, so its adapters must stay inert as well.
-local mgr = Mod and Mod.libs and Mod.libs["magical-glass"]
-if mgr == nil or (Kristal.getLibConfig and Kristal.getLibConfig("magical-glass", "enabled") == false) then
-    return LightEncounter
-end
 
 local LightEncounter, super = HookSystem.hookScript(LightEncounter)
 

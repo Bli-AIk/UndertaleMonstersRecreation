@@ -41,18 +41,6 @@ git submodule add https://github.com/Bli-AIk/UndertaleMonstersRecreation.git \
 
 The library is content-only (no `lib.lua`): its enemies register through the `MG_EVENT` registry once MagicalGlassRedux is loaded. Keep the upstream folder name (`UndertaleMonstersRecreation`) so the engine discovers it via `lib.json` (library id `undertale_monsters_recreation`).
 
-## Runtime Enable Switch
-
-Like MagicalGlassRedux, a main mod can disable this library cleanly from its `mod.json` (overriding `lib.json`'s `enabled` default of `true` without touching the library):
-
-```json
-"config": {
-    "undertale_monsters_recreation": { "enabled": false }
-}
-```
-
-When disabled, its content is not registered; the library still appears in `Mod.libs`, so dependency guards stay safe.
-
 ## Content
 
 - `froggit` — light enemy, 3 waves (flies / leapfrog / splinter), 6 bullets, encounters `froggit`, `froggit2`

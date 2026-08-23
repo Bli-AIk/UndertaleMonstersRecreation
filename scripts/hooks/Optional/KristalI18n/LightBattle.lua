@@ -2,18 +2,9 @@
 -- These strings originate in enemy subclasses, so intercept the LightBattle
 -- display boundary instead of the base LightEnemyBattler:onAct method.
 local HasI18N = Mod and Mod.libs and Mod.libs["kristalI18n"] ~= nil
-if Mod and Mod.libs and Mod.libs["undertale_monsters_recreation"] and Kristal.getLibConfig and
-    Kristal.getLibConfig("undertale_monsters_recreation", "enabled") == false then
-    return LightBattle
-end
--- UMR content is loaded through magical-glass: when MGR is missing or
--- disabled, UMR is inert too, so its adapters must stay inert as well.
-local mgr = Mod and Mod.libs and Mod.libs["magical-glass"]
-if mgr == nil or (Kristal.getLibConfig and Kristal.getLibConfig("magical-glass", "enabled") == false) then
-    return LightBattle
-end
 
 local LightBattle, super = HookSystem.hookScript(LightBattle)
+local _, I18N = Kristal.executeLibScript("undertale_monsters_recreation", "scripts/i18n")
 
 local function callLoc(key, fallback, var)
     if HasI18N and Game and Game.hasStr and Game:hasStr(key) then
@@ -25,7 +16,7 @@ end
 local function getActKey(action)
     local enemy = action and action.target
     if action and action.action == "ACT" and type(action.name) == "string" and
-        type(enemy) == "table" and type(enemy.id) == "string" then
+        type(enemy) == "table" and enemy.i18n_umr and type(enemy.id) == "string" then
         -- action.name is the *visible* (localized) act name; keys must use
         -- the English source name recorded by the refresher.
         local act_name = nil
@@ -42,6 +33,14 @@ local function getActKey(action)
 end
 
 if HasI18N then
+    function LightBattle:postInit(...)
+        local r = super.postInit(self, ...)
+        for _, enemy in ipairs(self.enemies or {}) do
+            I18N.refreshEnemy(enemy)
+        end
+        return r
+    end
+
     function LightBattle:processAction(action)
         local enemy, key = getActKey(action)
         if not enemy or not key or type(enemy.onAct) ~= "function" then

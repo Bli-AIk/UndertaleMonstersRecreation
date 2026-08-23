@@ -41,18 +41,6 @@ git submodule add https://github.com/Bli-AIk/UndertaleMonstersRecreation.git \
 
 本库为纯内容库（无 `lib.lua`）：MagicalGlassRedux 加载后，敌人通过 `MG_EVENT` 注册表注册。保持上游文件夹名（`UndertaleMonstersRecreation`），引擎才能通过 `lib.json` 发现它（库 id `undertale_monsters_recreation`）。
 
-## 运行时开关
-
-与 MagicalGlassRedux 一样，主 mod 可在自己的 `mod.json` 中干净地关掉本库（覆盖 `lib.json` 的 `enabled` 默认值 `true`，无需改库文件）：
-
-```json
-"config": {
-    "undertale_monsters_recreation": { "enabled": false }
-}
-```
-
-关闭后其内容不注册；库依然出现在 `Mod.libs` 中，依赖守卫仍然安全。
-
 ## 内容
 
 - `froggit`（蛙吉特）—— 光世界敌人，3 波次（flies / leapfrog / splinter）、6 弹幕，遭遇战 `froggit`、`froggit2`

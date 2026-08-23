@@ -1,29 +1,16 @@
--- Optional kristal-i18n adapter for UMR content: refresh encounter/enemy texts
--- on language switch (the UMR adapter registers `i18n_refreshEnemy` on the
--- undertale_monsters_recreation library table).
+-- Optional kristal-i18n adapter for UMR content: refresh enemy text on a
+-- language or name-language switch.
 local HasI18N = Mod and Mod.libs and Mod.libs["kristalI18n"] ~= nil
 local BaseGame = Game
--- Optional runtime switch: the main mod can disable the whole library via
--- mod.json config ({"undertale_monsters_recreation": {"enabled": false}}); see README.
-if Mod and Mod.libs and Mod.libs["undertale_monsters_recreation"] and Kristal.getLibConfig and
-    Kristal.getLibConfig("undertale_monsters_recreation", "enabled") == false then
-    return BaseGame
-end
--- UMR content is loaded through magical-glass: when MGR is missing or
--- disabled, UMR is inert too, so its adapters must stay inert as well.
-local mgr = Mod and Mod.libs and Mod.libs["magical-glass"]
-if mgr == nil or (Kristal.getLibConfig and Kristal.getLibConfig("magical-glass", "enabled") == false) then
-    return BaseGame
-end
 
 local Game, super = HookSystem.hookScript(BaseGame)
+local _, I18N = Kristal.executeLibScript("undertale_monsters_recreation", "scripts/i18n")
 
 if HasI18N then
     local function refreshEnemies()
-        local lib = Mod and Mod.libs and Mod.libs["undertale_monsters_recreation"]
-        if lib and lib.i18n_refreshEnemy and BaseGame.battle then
+        if BaseGame.battle then
             for _, enemy in ipairs(BaseGame.battle.enemies or {}) do
-                lib.i18n_refreshEnemy(enemy)
+                I18N.refreshEnemy(enemy)
             end
         end
     end

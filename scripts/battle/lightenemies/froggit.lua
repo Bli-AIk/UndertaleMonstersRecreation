@@ -1,4 +1,5 @@
 local Froggit, super = Class(LightEnemyBattler)
+Froggit.i18n_umr = true
 
 function Froggit:init()
     super.init(self)

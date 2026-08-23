@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue)](LICENSE-APACHE) <img src="https://img.shields.io/github/repo-size/Bli-AIk/UndertaleMonstersRecreation.svg"/> <img src="https://img.shields.io/github/last-commit/Bli-AIk/UndertaleMonstersRecreation.svg"/> <img src="https://img.shields.io/github/v/release/Bli-AIk/UndertaleMonstersRecreation.svg"/> <br>
 <img src="https://img.shields.io/badge/UNDERTALE-000000?style=for-the-badge&logo=undertale&logoColor=ff0000" /> <img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" /> <img src="https://img.shields.io/badge/Kristal-FF6B35?style=for-the-badge&logo=love2d&logoColor=white" />
 
-**UndertaleMonstersRecreation** — 面向 [MagicalGlassRedux](https://github.com/Bli-AIk/MagicalGlassRedux) 与 [Kristal](https://github.com/KristalTeam/Kristal) 的 UNDERTALE 怪物光战斗内容（蛙吉特、摩登斯玛尔…）。
+**UndertaleMonstersRecreation** — 面向 [MagicalGlassRedux](https://github.com/Bli-AIk/MagicalGlassRedux) 与 [Kristal](https://github.com/KristalTeam/Kristal) 的 UNDERTALE 怪物光战斗内容（蛙吉特、小模怪…）。
 
 本仓库是**维护 fork**：上游（[FireRainV/Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack)）面向 Kristal 0.10 且不再积极维护，因此本仓库跟随 MagicalGlassRedux fork 的 Kristal 0.11-dev 移植，并增加可选的 [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) 支持。详见 [`UPSTREAM.md`](UPSTREAM.md) 与 [`CHANGELOG.md`](CHANGELOG.md)。
 
@@ -56,7 +56,7 @@ git submodule add https://github.com/Bli-AIk/UndertaleMonstersRecreation.git \
 ## 内容
 
 - `froggit`（蛙吉特）—— 光敌人，3 波次（flies / leapfrog / splinter）、6 弹幕，遭遇战 `froggit`、`froggit2`
-- `moldsmal`（摩登斯玛尔）—— 光敌人，2 波次（pollendrop / splinterbig），遭遇战 `moldsmal`、`moldsmal2`、`moldsmal3`
+- `moldsmal`（小模怪）—— 光敌人，2 波次（pollendrop / splinterbig），遭遇战 `moldsmal`、`moldsmal2`、`moldsmal3`
 
 ## kristal-i18n 支持（可选）
 
@@ -75,9 +75,7 @@ git submodule add https://github.com/Bli-AIk/UndertaleMonstersRecreation.git \
 
 ## 参与贡献
 
-欢迎提交 Issue 或 Pull Request。本 fork 是本地移植枢纽：非 fork 特有的修复请尽量以 PR 回捐上游（[FireRainV/Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack)），避免 fork 本地漂移。
-
-仓库布局（上游代码 vs fork 代码）、落地规则与翻译审核要求见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+欢迎提交 Issue 或 Pull Request。仓库布局（上游代码 vs fork 代码）、落地规则与翻译审核要求见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 许可证
 

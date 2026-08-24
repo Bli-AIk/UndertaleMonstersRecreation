@@ -59,8 +59,26 @@ fetch_json_field() {
     | base64 -d 2>/dev/null | jq -r "$2" 2>/dev/null || true
 }
 
+check_additional_sources() {
+  local source_name source_repo source_branch tree_json path expected actual drift=""
+  while IFS=$'\t' read -r source_name source_repo source_branch; do
+    tree_json="$(gh api "repos/${source_repo}/git/trees/${source_branch}?recursive=1" 2>/dev/null || true)"
+    while IFS=$'\t' read -r path expected; do
+      actual="$(printf '%s' "$tree_json" | jq -r --arg path "$path" \
+        '.tree[] | select(.path == $path) | .sha' 2>/dev/null | head -1 || true)"
+      actual="${actual:-unknown}"
+      if [[ "$actual" != "$expected" ]]; then
+        drift="$drift source(${source_name}:${path} ${expected} -> ${actual})"
+      fi
+    done < <(jq -r --arg source "$source_name" \
+      '.additional_sources[$source].blobs | to_entries[] | [.key, .value] | @tsv' "$FACTS")
+  done < <(jq -r \
+    '(.additional_sources // {}) | to_entries[] | [.key, .value.repo, .value.branch] | @tsv' "$FACTS")
+  printf '%s' "$drift"
+}
+
 main() {
-  local now_ref now_tree now_lib now_engine now_deps
+  local now_ref now_tree now_lib now_engine now_deps additional_drift primary_drift drift_target
   now_ref="$(gh api "repos/${REPO}/commits/${BRANCH}" --jq '.sha' 2>/dev/null || true)"
   now_tree="$(gh api "repos/${REPO}/git/trees/${BRANCH}?recursive=1" \
     --jq ".tree[] | select(.path==\"${PATHV}\") | .sha" 2>/dev/null || true)"
@@ -87,6 +105,10 @@ main() {
   [[ "$now_tree" != "$TREE" ]] && drift="$drift tree($TREE -> $now_tree)"
   [[ "$now_lib" != "$LIB_VERSION" ]] && drift="$drift version($LIB_VERSION -> $now_lib)"
   [[ "$now_engine" != "$ENGINE_VER" ]] && drift="$drift engineVer($ENGINE_VER -> $now_engine)"
+  primary_drift="$drift"
+  additional_drift="$(check_additional_sources)"
+  drift="$drift$additional_drift"
+  [[ -n "$additional_drift" ]] && log "additional source drift:${additional_drift}"
 
   if [[ -z "$drift" ]]; then
     if [[ "$RUN_MODE" == "monthly" ]]; then
@@ -116,22 +138,28 @@ ${CI_NOTE_ZH}"
   commits="$(gh api "repos/${REPO}/commits?path=${PATHV}&sha=${BRANCH}&per_page=10" \
     --jq '.[] | "\(.sha[0:7]) \(.commit.author.date[0:10]) \(.commit.message | split("\n")[0])"' 2>/dev/null || echo "(unable to list commits)")"
 
-  upsert_issue "${PREFIX} ${now_ref:0:7} Upstream drift: ${PATHV}" \
+  drift_target="$PATHV"
+  if [[ -z "$primary_drift" && -n "$additional_drift" ]]; then
+    drift_target="additional sources"
+  fi
+
+  upsert_issue "${PREFIX} ${now_ref:0:7} Upstream drift: ${drift_target}" \
 "**Upstream drift detected**
 
-- **${REPO}** @ \`${BRANCH}\`, path \`${PATHV}\` has changed since the pinned \`${REF}\`.
+- Primary source: **${REPO}** @ \`${BRANCH}\`, path \`${PATHV}\`, pinned at \`${REF}\`.
+- Additional source blobs are tracked in \`${FACTS}\` and are included in the drift signals below.
 - Pinned: tree \`${TREE}\`, lib ${LIB_VERSION}, engineVer ${ENGINE_VER}
 - Found: tree \`${now_tree}\`, lib ${now_lib}, engineVer ${now_engine}${now_deps_msg}
 - Drift signals:${drift}
 
-Recent upstream commits touching the path:
+Recent upstream commits touching the primary path:
 
 \`\`\`
 ${commits}
 \`\`\`
 
 Suggested actions:
-1. Review the diff: \`gh repo diff ${REPO} ${REF} -- ${PATHV}\`
+1. Review the primary diff: \`gh repo diff ${REPO} ${REF} -- ${PATHV}\`; compare any additional-source paths named above against their pinned blobs.
 2. Port relevant fixes onto this fork (cherry-pick style, add \`Co-authored-by\`).
 3. After review, update the pins in \`${FACTS}\` and note it in \`UPSTREAM.md\`.
 4. **Prefer sending the fixes upstream as a PR** (\`${REPO}\`) — upstream backport beats fork-local drift.
@@ -142,19 +170,20 @@ ${CI_NOTE_EN}
 
 **检测到上游漂移**
 
-- **${REPO}** @ \`${BRANCH}\`，路径 \`${PATHV}\` 在 pin 用 \`${REF}\` 之后发生了变化。
+- 主来源：**${REPO}** @ \`${BRANCH}\`，路径 \`${PATHV}\`，pin 为 \`${REF}\`。
+- 额外来源 blob 记录在 \`${FACTS}\` 中，也会出现在下方漂移项里。
 - Pin 值：tree \`${TREE}\`，lib ${LIB_VERSION}，engineVer ${ENGINE_VER}
 - 当前值：tree \`${now_tree}\`，lib ${now_lib}，engineVer ${now_engine}${now_deps_msg}
 - 漂移项：${drift}
 
-上游最近触及该路径的提交：
+上游最近触及主路径的提交：
 
 \`\`\`
 ${commits}
 \`\`\`
 
 建议动作：
-1. 审阅差异：\`gh repo diff ${REPO} ${REF} -- ${PATHV}\`
+1. 审阅主路径差异：\`gh repo diff ${REPO} ${REF} -- ${PATHV}\`；额外来源请按上方列出的路径与其 pin blob 对比。
 2. 把相关修复移植到本 fork（带 \`Co-authored-by\` 署名）。
 3. 复核后更新 \`${FACTS}\` 中的 pin，并在 \`UPSTREAM.md\` 记录。
 4. **优先把修复作为 PR 回捐上游**（\`${REPO}\`）——回捐优于 fork 本地漂移。

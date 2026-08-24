@@ -1,7 +1,9 @@
 {
- // 数据来源：UT 汉化补丁 0.3.3 键值对提取版（由「真是滑稽了啊」提供；UT 汉化原作：好人汉化组）。
+ // 敌人条目数据来源：UT 汉化补丁 0.3.3 键值对提取版（由「真是滑稽了啊」提供；UT 汉化原作：好人汉化组）。
  // 格式约定：check 值不含前导 '* "名称" - ' 头部（显示层会重新拼接）；源文本字间空格与全部 UT
  // 标记（^N 等待、% / 收尾符、ASCII 逗号）均在生成时清除。
+ // Mouse Hole 条目（umr_mousehole_*）是对 FireRainV 上游英文原文的维护者译文，属于上游文本的衍生物；
+ // 来源与权利说明见 UPSTREAM.md 和 LICENSE-UPSTREAM.md。
  "act_compliment": "称赞",
  "act_flirt": "调情",
  "act_imitate": "模仿",
@@ -42,5 +44,37 @@
  "lightencounter_froggit_text": "* [name:froggit]蹦蹦跳跳地接近了！",
  "lightencounter_moldsmal2_text": "* [name:moldsmal]和[name:moldsmal]\n挡住了去路。",
  "lightencounter_moldsmal3_text": "* 你撞上了一排\n[name:moldsmal]。",
- "lightencounter_moldsmal_text": "* [name:moldsmal]拦住了去路！"
+ "lightencounter_moldsmal_text": "* [name:moldsmal]拦住了去路！",
+ "umr_mousehole_encounter": "* 欢迎来到鼠洞。\n[wait:5]* 有什么我能帮你的吗？",
+ "umr_mousehole_shop": "* 谢谢你光临我的小店。",
+ "umr_mousehole_leaving": "* 随时欢迎再来！",
+ "umr_mousehole_buy_menu": "我这里有\n这些。",
+ "umr_mousehole_buy_confirmation": "要买下它吗？\n%s",
+ "umr_mousehole_buy_refuse": "真可惜。",
+ "umr_mousehole_buy": "很高兴和你做成这笔生意！",
+ "umr_mousehole_buy_storage": "我帮你把它放进\n储物箱啦！",
+ "umr_mousehole_buy_too_expensive": "钱不够。",
+ "umr_mousehole_buy_no_space": "你带的东西\n太多了。",
+ "umr_mousehole_sell_menu": "我很乐意\n收下它！",
+ "umr_mousehole_sell_nothing": "没东西。",
+ "umr_mousehole_sell": "很高兴和你做成这笔生意！",
+ "umr_mousehole_sell_no_storage": "* 没东西。",
+ "umr_mousehole_sell_no_storage_encounter": "* 没东西。",
+ "umr_mousehole_sell_everything": "没东西。",
+ "umr_mousehole_talk_menu": "当然，\n我有时间！",
+ "umr_mousehole_talk_about_self": "关于你自己",
+ "umr_mousehole_talk_wall_guardian": "关于守墙人",
+ "umr_mousehole_talk_cheese": "奶酪？",
+ "umr_mousehole_talk_picture_frame": "相框",
+ "umr_mousehole_talk_together": "我们在一起？",
+ "umr_mousehole_dialogue_about_self_1": "[emote:idle]* 我也不知道该从哪里说起...\n[wait:5]* 我只是山脊上的一名店主。",
+ "umr_mousehole_dialogue_about_self_2": "[emote:explaining]* 我的意思是，[wait:5]我很喜欢看着一切\n从商店前经过。\n[wait:5]* 外来者总会带来许多有意思的东西！",
+ "umr_mousehole_dialogue_about_self_3": "[emote:happy]* 而且有时，他们还会带点奶酪\n当礼物！",
+ "umr_mousehole_dialogue_cheese_1": "[emote:left]* 我，[wait:5]呃，[wait:5]真的很喜欢奶酪。\n[wait:5]* 它简直是完美的食物。",
+ "umr_mousehole_dialogue_cheese_2": "[emote:explaining]* 什...[wait:5]不，[wait:5]我没上瘾，[wait:5]我随时都能戒掉，[wait:5]好吗？",
+ "umr_mousehole_dialogue_wall_guardian_1": "[emote:left]* [name:wallie]？[wait:5]他是我的好朋友。\n[wait:5]* 我记事以来他就一直在这里，\n[wait:5]我刚来时还带我熟悉过这里。",
+ "umr_mousehole_dialogue_picture_frame_1": "[emote:left]* 哦，[wait:5]呃呵呵...\n[wait:5]* 我总会忘记我把它放在那里了。",
+ "umr_mousehole_dialogue_picture_frame_2": "[emote:idle]* 别在意它，[wait:5]它只是...",
+ "umr_mousehole_dialogue_together_1": "[emote:left]* 我-我们？[wait:5]不，[wait:5]我们不是...\n[wait:5]* 我是说，[wait:5]我也没什么可取之处。",
+ "umr_mousehole_dialogue_together_2": "[emote:happy]* 就这样！！"
 }

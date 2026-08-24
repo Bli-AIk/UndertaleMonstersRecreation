@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue)](LICENSE-APACHE) <img src="https://img.shields.io/github/repo-size/Bli-AIk/UndertaleMonstersRecreation.svg"/> <img src="https://img.shields.io/github/last-commit/Bli-AIk/UndertaleMonstersRecreation.svg"/> <img src="https://img.shields.io/github/v/release/Bli-AIk/UndertaleMonstersRecreation.svg"/> <br>
 <img src="https://img.shields.io/badge/UNDERTALE-000000?style=for-the-badge&logo=undertale&logoColor=ff0000" /> <img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" /> <img src="https://img.shields.io/badge/Kristal-FF6B35?style=for-the-badge&logo=love2d&logoColor=white" />
 
-**UndertaleMonstersRecreation** — UNDERTALE monsters (Froggit, Moldsmal…) as light battle content for [MagicalGlassRedux](https://github.com/Bli-AIk/MagicalGlassRedux) and [Kristal](https://github.com/KristalTeam/Kristal).
+**UndertaleMonstersRecreation** — UNDERTALE monsters and the Mouse Hole light-world shop as content for [MagicalGlassRedux](https://github.com/Bli-AIk/MagicalGlassRedux) and [Kristal](https://github.com/KristalTeam/Kristal).
 
 This repository is a **maintenance fork**: upstream ([FireRainV/Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack)) targets Kristal 0.10 and is no longer actively maintained, so this fork follows the MagicalGlassRedux fork's Kristal 0.11-dev port and adds optional [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) support. See [`UPSTREAM.md`](UPSTREAM.md) and [`CHANGELOG.md`](CHANGELOG.md).
 
@@ -45,10 +45,11 @@ The library is content-only (no `lib.lua`): its enemies register through the `MG
 
 - `froggit` — light enemy, 3 waves (flies / leapfrog / splinter), 6 bullets, encounters `froggit`, `froggit2`
 - `moldsmal` — light enemy, 2 waves (pollendrop / splinterbig), encounters `moldsmal`, `moldsmal2`, `moldsmal3`
+- `mousehole` — Amelia's light-world shop, with the Mouse Hole background, shop music, Hush Puppy, and progressive TALK topics. MGR registers it automatically; enter it with `Game.world:lightShopTransition("mousehole", options)`.
 
 ## kristal-i18n Support (optional)
 
-When kristal-i18n (`kristalI18n`) is loaded, enemy names/check texts and wave strings are localized through `Game:loc` with `Game:hasStr` guards (English fallback otherwise). Language data lives in `lang/` and is merged automatically.
+When kristal-i18n (`kristalI18n`) is loaded, enemy names/check texts, wave strings, and Mouse Hole shop text are localized through `Game:loc` with `Game:hasStr` guards (English fallback otherwise). Language data lives in `lang/` and is merged automatically.
 
 Translation provenance is recorded in the comments of `lang/zh_hans.json`; see [Upstream & References](#upstream--references) for the sources.
 
@@ -57,6 +58,7 @@ Translation provenance is recorded in the comments of `lang/zh_hans.json`; see [
 | Source | Author |
 | ------ | ------ |
 | [Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack) (upstream) | FireRainV |
+| Mouse Hole component from Noelle-Libraries-Pack | FireRainV |
 | UT 汉化补丁 0.3.3 key-value extraction | 真是滑稽了啊 (extraction) · [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) (original UT translation) |
 | [DeltaruneChinese](https://github.com/gm3dr/DeltaruneChinese) — overrides where the light-world UI overlaps | [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) |
 | [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | Bli-AIk |
@@ -69,7 +71,7 @@ Issues and Pull Requests are welcome. For the repo layout (upstream vs fork code
 
 **License split** (important — see [LICENSE-UPSTREAM.md](LICENSE-UPSTREAM.md), [LICENSE-MIT](LICENSE-MIT), [LICENSE-APACHE](LICENSE-APACHE)):
 
-- *Upstream code* — everything originally shipped in the pack library, as imported at commit `249c171`, itself pinned to upstream `f182f69` — **retains all rights** © the original authors listed in `lib.json` (Sam Deluxe, BrendaK7200, FireRainV); upstream published it **without a license grant**. No open-source license is claimed for it here.
+- *Upstream code* — the original UMR import and Mouse Hole component imported from Noelle-Libraries-Pack at `f182f69` — **retain all rights** © their original authors (Sam Deluxe, BrendaK7200, FireRainV); upstream published them **without a license grant**. No open-source license is claimed for them here.
 - *Fork code* — port fixes, the kristal-i18n adapter, CI, and docs — is **dual-licensed MIT OR Apache-2.0, at your option**.
-- The split follows `git log`: every commit up to and including `Import UndertaleMonstersRecreation v1.1.1 ...` is upstream; everything after is fork code.
+- The split follows `git log`: `Import UndertaleMonstersRecreation v1.1.1 ...` and `Import Mouse Hole content ...` are upstream imports; their follow-up portability changes are fork code.
 - Translations derived from upstream text fall under the upstream rights; fork-original translations are covered by the fork license.

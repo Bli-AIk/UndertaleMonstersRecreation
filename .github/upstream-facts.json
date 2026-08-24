@@ -10,5 +10,36 @@
         "engine_ver": "v0.10.0",
         "id": "undertale_monsters_recreation",
         "dependencies": ["magical-glass"]
+    },
+    "additional_sources": {
+        "mousehole": {
+            "repo": "FireRainV/Noelle-Libraries-Pack",
+            "branch": "main",
+            "ref": "f182f69",
+            "introduced_by": "4e4ef27",
+            "import_commit": "f11bfb9",
+            "blobs": {
+                "assets/music/shop.ogg": "48bb89d5e3c6adeef2f7dbfb737d6cfea5578c6a",
+                "assets/sprites/shopkeepers/amelia/explaining.png": "6f3fe896b4c913206a5788d602d7b582de9b1ce8",
+                "assets/sprites/shopkeepers/amelia/explaining_talk_1.png": "80b073c051b89312898982c0219868dff442bad7",
+                "assets/sprites/shopkeepers/amelia/explaining_talk_2.png": "6f3fe896b4c913206a5788d602d7b582de9b1ce8",
+                "assets/sprites/shopkeepers/amelia/happy.png": "f4c1eb9aed85f6e8cce4cd2b2fbfaa47d8bb0256",
+                "assets/sprites/shopkeepers/amelia/happy_talk_1.png": "1aeb053d491d36c0dada9bf471b805f126063532",
+                "assets/sprites/shopkeepers/amelia/happy_talk_2.png": "f4c1eb9aed85f6e8cce4cd2b2fbfaa47d8bb0256",
+                "assets/sprites/shopkeepers/amelia/idle_1.png": "d3f41e9b825e352e9caa2263850d825895c5391f",
+                "assets/sprites/shopkeepers/amelia/idle_2.png": "3de78c23d9bfce5dffad0642e586fef6788fdf34",
+                "assets/sprites/shopkeepers/amelia/idle_3.png": "789e04d617c49da1db790b568dfb07cb3de3778b",
+                "assets/sprites/shopkeepers/amelia/left.png": "71b32b65ed47ac740257f5bf3f0f696fe14f728c",
+                "assets/sprites/shopkeepers/amelia/left_talk_1.png": "e5286ebf0a566564da20f43f001f4e256b669d44",
+                "assets/sprites/shopkeepers/amelia/left_talk_2.png": "71b32b65ed47ac740257f5bf3f0f696fe14f728c",
+                "assets/sprites/shopkeepers/amelia/relaxed.png": "f0aa29bac9373db45cc2d94101b67e57da748daa",
+                "assets/sprites/shopkeepers/amelia/talk_1.png": "5f753240daf44678665b682008e09a2ff27c9f98",
+                "assets/sprites/shopkeepers/amelia/talk_2.png": "d3f41e9b825e352e9caa2263850d825895c5391f",
+                "assets/sprites/shops/mousehole_background_1.png": "60cdfc61c9ad2fa6c75938bd779b7e96fbb4e50c",
+                "assets/sprites/shops/mousehole_background_2.png": "4733e360b5514e305fe1902c9d44b51770837808",
+                "scripts/data/actors/shopkeepers/amelia.lua": "d29b036a5b040e402831e9d17c4ef4fd36c798a6",
+                "scripts/lightshops/mousehole.lua": "d79c5f8d564f05977903c453781a571a4217b7e2"
+            }
+        }
     }
 }

@@ -11,6 +11,12 @@ All notable changes to this fork are documented here, following
 
 ## [Unreleased] — fork development
 
+### Features
+
+- Add the Mouse Hole light-world shop (`mousehole`): Amelia, animated
+  background, shop music, Hush Puppy, progressive TALK topics, and optional
+  English / Simplified Chinese localization.
+
 ### Fixes
 
 - Implement Moldsmal's default `Standard` X-Action, preventing an unhandled

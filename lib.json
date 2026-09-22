@@ -1,5 +1,6 @@
 {
     "id": "undertale_monsters_recreation",
+    "alias": "umr", // short name for launch-time overrides and error messages
 
     "authors": [
         "Sam Deluxe", // Froggit

@@ -13,18 +13,19 @@ This repository is a **maintenance fork**: upstream ([FireRainV/Noelle-Libraries
 
 ## Kristal Version Support
 
-| Kristal version | UndertaleMonstersRecreation |
-| --------------- | --------------------------- |
-| [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/8e592d84065263138d4e92593f0a4ab780d93822) (`8e592d8`, 2026-09-21) | v0.1.0 |
-| v0.10.0 | v1.1.1 (upstream; `f182f69`) |
+| Kristal version                                                                                                               | UndertaleMonstersRecreation  |
+| ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/8e592d84065263138d4e92593f0a4ab780d93822) (`8e592d8`, 2026-09-21) |                              |
+| [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/f62afea63ccab02f468c24ac0d096bd8a2c9aa81) (`f62afea`, 2026-08-17) | v0.1.0                       |
+| v0.10.0                                                                                                                       | v1.1.1 (upstream; `f182f69`) |
 
 `v0.1.0` is the fork's current version line in `lib.json`; there is no packaged fork release yet (see [`CHANGELOG.md`](CHANGELOG.md)).
 
 ### Upstream alignment
 
-| Fork version | Aligned upstream | Upstream ref | Notes |
-| ------------ | ---------------- | ------------ | ----- |
-| v0.0.0 | UndertaleMonstersRecreation v1.1.1 | Noelle-Libraries-Pack `f182f69` (folder tree `0482e7d`) | Kristal 0.11-dev port + kristal-i18n adaption |
+| Fork version | Aligned upstream                   | Upstream ref                                            | Notes                                         |
+| ------------ | ---------------------------------- | ------------------------------------------------------- | --------------------------------------------- |
+| v0.0.0       | UndertaleMonstersRecreation v1.1.1 | Noelle-Libraries-Pack `f182f69` (folder tree `0482e7d`) | Kristal 0.11-dev port + kristal-i18n adaption |
 
 The pins live in `.github/upstream-facts.json`; see [`UPSTREAM.md`](UPSTREAM.md) for how they are computed.
 
@@ -55,13 +56,13 @@ Translation provenance is recorded in the comments of `lang/zh_hans.json`; see [
 
 ## Upstream & References
 
-| Source | Author |
-| ------ | ------ |
-| [Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack) (upstream) | FireRainV |
-| Mouse Hole component from Noelle-Libraries-Pack | FireRainV |
-| UT 汉化补丁 0.3.3 key-value extraction | 真是滑稽了啊 (extraction) · [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) (original UT translation) |
-| [DeltaruneChinese](https://github.com/gm3dr/DeltaruneChinese) — overrides where the light-world UI overlaps | [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) |
-| [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | Bli-AIk |
+| Source                                                                                                      | Author                                                                                                                                                        |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack) (upstream)                      | FireRainV                                                                                                                                                     |
+| Mouse Hole component from Noelle-Libraries-Pack                                                             | FireRainV                                                                                                                                                     |
+| UT 汉化补丁 0.3.3 key-value extraction                                                                      | 真是滑稽了啊 (extraction) · [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) (original UT translation) |
+| [DeltaruneChinese](https://github.com/gm3dr/DeltaruneChinese) — overrides where the light-world UI overlaps | [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/)                                                       |
+| [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n)                                                     | Bli-AIk                                                                                                                                                       |
 
 ## Contributing
 
@@ -71,7 +72,7 @@ Issues and Pull Requests are welcome. For the repo layout (upstream vs fork code
 
 **License split** (important — see [LICENSE-UPSTREAM.md](LICENSE-UPSTREAM.md), [LICENSE-MIT](LICENSE-MIT), [LICENSE-APACHE](LICENSE-APACHE)):
 
-- *Upstream code* — the original UMR import and Mouse Hole component imported from Noelle-Libraries-Pack at `f182f69` — **retain all rights** © their original authors (Sam Deluxe, BrendaK7200, FireRainV); upstream published them **without a license grant**. No open-source license is claimed for them here.
-- *Fork code* — port fixes, the kristal-i18n adapter, CI, and docs — is **dual-licensed MIT OR Apache-2.0, at your option**.
+- _Upstream code_ — the original UMR import and Mouse Hole component imported from Noelle-Libraries-Pack at `f182f69` — **retain all rights** © their original authors (Sam Deluxe, BrendaK7200, FireRainV); upstream published them **without a license grant**. No open-source license is claimed for them here.
+- _Fork code_ — port fixes, the kristal-i18n adapter, CI, and docs — is **dual-licensed MIT OR Apache-2.0, at your option**.
 - The split follows `git log`: `Import UndertaleMonstersRecreation v1.1.1 ...` and `Import Mouse Hole content ...` are upstream imports; their follow-up portability changes are fork code.
 - Translations derived from upstream text fall under the upstream rights; fork-original translations are covered by the fork license.

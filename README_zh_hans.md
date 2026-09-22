@@ -13,18 +13,19 @@
 
 ## Kristal 版本支持
 
-| Kristal 版本 | UndertaleMonstersRecreation |
-| ------------ | --------------------------- |
-| [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/8e592d84065263138d4e92593f0a4ab780d93822)（`8e592d8`，2026-09-21） | v0.1.0 |
-| v0.10.0 | v1.1.1（上游；`f182f69`） |
+| Kristal 版本                                                                                                                   | UndertaleMonstersRecreation |
+| ------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+| [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/8e592d84065263138d4e92593f0a4ab780d93822)（`8e592d8`，2026-09-21） |                             |
+| [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/f62afea63ccab02f468c24ac0d096bd8a2c9aa81)（`f62afea`，2026-08-17） | v0.1.0                      |
+| v0.10.0                                                                                                                        | v1.1.1（上游；`f182f69`）   |
 
 `v0.1.0` 是本 fork 当前在 `lib.json` 中的版本线；本 fork 尚未发布打包版本（见 [`CHANGELOG.md`](CHANGELOG.md)）。
 
 ### 上游对齐
 
-| fork 版本 | 对齐的上游 | 上游 ref | 说明 |
-| --------- | ---------- | -------- | ---- |
-| v0.0.0 | UndertaleMonstersRecreation v1.1.1 | Noelle-Libraries-Pack `f182f69`（文件树 `0482e7d`） | Kristal 0.11-dev 移植 + kristal-i18n 适配 |
+| fork 版本 | 对齐的上游                         | 上游 ref                                            | 说明                                      |
+| --------- | ---------------------------------- | --------------------------------------------------- | ----------------------------------------- |
+| v0.0.0    | UndertaleMonstersRecreation v1.1.1 | Noelle-Libraries-Pack `f182f69`（文件树 `0482e7d`） | Kristal 0.11-dev 移植 + kristal-i18n 适配 |
 
 上游 pin 记录在 `.github/upstream-facts.json`；计算方法见 [`UPSTREAM.md`](UPSTREAM.md)。
 
@@ -55,13 +56,13 @@ git submodule add https://github.com/Bli-AIk/UndertaleMonstersRecreation.git \
 
 ## 上游来源与参考
 
-| 来源 | 作者 |
-| ---- | ---- |
-| [Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack)（上游） | FireRainV |
-| Noelle-Libraries-Pack 中的 Mouse Hole 组件 | FireRainV |
-| UT 汉化补丁 0.3.3 键值对提取 | 真是滑稽了啊（提取）· [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/)（UT 汉化原作） |
-| [DeltaruneChinese](https://github.com/gm3dr/DeltaruneChinese) —— 与光世界 UI 重叠处以它为准 | [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/) |
-| [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | Bli-AIk |
+| 来源                                                                                        | 作者                                                                                                                                         |
+| ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Noelle-Libraries-Pack](https://github.com/FireRainV/Noelle-Libraries-Pack)（上游）         | FireRainV                                                                                                                                    |
+| Noelle-Libraries-Pack 中的 Mouse Hole 组件                                                  | FireRainV                                                                                                                                    |
+| UT 汉化补丁 0.3.3 键值对提取                                                                | 真是滑稽了啊（提取）· [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/)（UT 汉化原作） |
+| [DeltaruneChinese](https://github.com/gm3dr/DeltaruneChinese) —— 与光世界 UI 重叠处以它为准 | [Goodman 3 Localization Group \| UNDERTALE & DELTARUNE Chinese Localization](https://github.com/gm3dr/)                                      |
+| [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n)                                     | Bli-AIk                                                                                                                                      |
 
 ## 参与贡献
 
@@ -71,7 +72,7 @@ git submodule add https://github.com/Bli-AIk/UndertaleMonstersRecreation.git \
 
 **许可拆分**（重要——见 [LICENSE-UPSTREAM.md](LICENSE-UPSTREAM.md)、[LICENSE-MIT](LICENSE-MIT)、[LICENSE-APACHE](LICENSE-APACHE)）：
 
-- *上游代码* —— Noelle-Libraries-Pack `f182f69` 中导入的原始 UMR 与 Mouse Hole 组件 —— **保留所有权利** © 原作者（Sam Deluxe、BrendaK7200、FireRainV）；上游发布时**未授予任何开源许可**。
-- *fork 代码* —— 移植补丁、kristal-i18n 适配、CI 与文档 —— **MIT OR Apache-2.0 双许可，任选其一**。
+- _上游代码_ —— Noelle-Libraries-Pack `f182f69` 中导入的原始 UMR 与 Mouse Hole 组件 —— **保留所有权利** © 原作者（Sam Deluxe、BrendaK7200、FireRainV）；上游发布时**未授予任何开源许可**。
+- _fork 代码_ —— 移植补丁、kristal-i18n 适配、CI 与文档 —— **MIT OR Apache-2.0 双许可，任选其一**。
 - 拆分以 `git log` 为准：`Import UndertaleMonstersRecreation v1.1.1 ...` 与 `Import Mouse Hole content ...` 为上游导入；其后的兼容性修改为 fork 代码。
 - 上游文本的衍生物（如上游文本的翻译）归于上游权利；fork 原创翻译由 fork 许可覆盖。

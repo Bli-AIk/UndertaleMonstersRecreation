@@ -15,7 +15,7 @@ This repository is a **maintenance fork**: upstream ([FireRainV/Noelle-Libraries
 
 | Kristal version                                                                                                               | UndertaleMonstersRecreation  |
 | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/8e592d84065263138d4e92593f0a4ab780d93822) (`8e592d8`, 2026-09-21) |                              |
+| [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/8e592d84065263138d4e92593f0a4ab780d93822) (`8e592d8`, 2026-09-21) | 0.2.0                        |
 | [v0.11.0-dev](https://github.com/KristalTeam/Kristal/commit/f62afea63ccab02f468c24ac0d096bd8a2c9aa81) (`f62afea`, 2026-08-17) | v0.1.0                       |
 | v0.10.0                                                                                                                       | v1.1.1 (upstream; `f182f69`) |
 
